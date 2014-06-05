@@ -1,0 +1,24 @@
+{
+  "name": "vpo",
+  "version": "0.0.0",
+  "description": "Value/path helper functions for javascript objects",
+  "main": "vpo.js",
+  "scripts": {
+    "test": "mocha --recursive -t 10000 -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/unlucio/vpo.git"
+  },
+  "keywords": [
+    "objects",
+    "value",
+    "path"
+  ],
+  "author": "Luciano Colosio <unlucio@gmail.com> (https://github.com/unlucio)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unlucio/vpo/issues"
+  },
+  "homepage": "https://github.com/unlucio/vpo"
+}
