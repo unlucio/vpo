@@ -6,7 +6,7 @@ vpo
 #### Value/path helper functions for javascript objects
 It's a set of simple functions that let you query or set values on your ojects by a given string path.
 
-###### How to get it:
+##### How to get it:
 either:
 ```
 git clone git://github.com/unlucio/vpo.git
@@ -17,7 +17,7 @@ npm install vpo
 ```
 
 
-examples:
+##### examples:
 
 given the following dummy object:
 
