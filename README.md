@@ -8,7 +8,7 @@ examples:
 
 given the following dummy object:
 
-```
+```javascript
 {
 	key1: {
 		foo1: {
