@@ -1,0 +1,27 @@
+{
+  "name": "vpo",
+  "main": "vpo.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/unlucio/vpo",
+  "authors": [
+    "Luciano Colosio <unlucio@gmail.com>"
+  ],
+  "description": "Value/path helper functions for javascript objects",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "objects",
+    "value",
+    "path"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
