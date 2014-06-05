@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/unlucio/vpo/issues"
   },
-  "homepage": "https://github.com/unlucio/vpo"
+  "homepage": "https://github.com/unlucio/vpo",
+  "devDependencies": {
+    "mocha": "latest"
+  }
 }
