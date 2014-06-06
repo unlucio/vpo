@@ -4,7 +4,7 @@ vpo
 [![Build Status](https://travis-ci.org/unlucio/vpo.svg?branch=master)](https://travis-ci.org/unlucio/vpo)
 
 #### Value/path helper functions for javascript objects
-It's a set of simple functions that let you query or set values on your ojects by a given string path.
+It's a set of simple functions that let you query or set values on your objects by a given string path.
 
 ##### How to get it:
 either:
