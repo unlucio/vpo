@@ -1,3 +1,5 @@
+'use strict';
+
 (function (vpo) {
 	function setValueByPath(object, path, value) {
 		var nextPath = '';
@@ -27,9 +29,35 @@
 		}
 	}
 
+	function getPathByMatchingValue(object, value, path) {
+		path = path || '';
+		var keys = Object.keys(object);
+		var keysCount = keys.length;
+
+		if (keysCount > 0) {
+			for (var index in keys) {
+				var key = keys[index];
+				 console.log("fun ret: ", (function (key, path) {
+				 	path = path + key;
+					console.log(path + "> current key: ", key);
+					console.log(path + "> current object[key](type: "+typeof object[key]+"): ", object[key]);
+					if (typeof object[key] === 'object') {
+						return getPathByMatchingValue(object[key], value, path+'.')
+					} else {
+						if (object[key] === value) {
+							console.log(path + ">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! found value: ", value);
+							return path;
+						}
+					}
+				}(key, path)));
+			}
+		}
+	}
+
 	vpo.setValueByPath = setValueByPath;
 	vpo.getValueByPath = getValueByPath;
-    
+	vpo.getPathByMatchingValue = getPathByMatchingValue;
+
 	vpo.setOnObjectPrototype = function () {
 		Object.prototype.setValueByPath = function (path, value) {
 			setValueByPath(this, path, value);
