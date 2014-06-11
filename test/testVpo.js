@@ -28,6 +28,18 @@ describe('Vpo tests', function () {
 				foo3: {
 					bar3: 'bao'
 				}
+			},
+			key3: {
+				foo1: {
+					bar1: 'bao',
+					bar2: 'bao'
+				},
+				foo2: {
+					bar2: 'bao12'
+				},
+				foo3: {
+					bar3: 'bao'
+				}
 			}
 		};
 	});
@@ -49,6 +61,11 @@ describe('Vpo tests', function () {
 		it('Can get a value', function () {
 			var value = vpo.getValueByPath(testObj, 'key1.foo2.bar2')
 			assert.equal("bao", value, "Cannot read value!");
+		});
+		
+		it('Can find a path by matching a value', function () {
+			var value = vpo.getPathByMatchingValue(testObj, 'bao12');
+			assert.equal("key3.foo2.bar2", value, "Cannot find path by  matching value!");
 		});
 	});
 

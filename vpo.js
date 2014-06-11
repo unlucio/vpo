@@ -27,8 +27,37 @@
 		}
 	}
 
+	function getPathByMatchingValue( obj, value) {
+		var finalPath = '';
+		var trace = [];
+		var iterator = function iterator( obj, value ) {
+			// find all object keys
+			for( var key in obj ) {
+				// add it to the stack
+				trace.push( key );
+				if( typeof obj[key] === 'object') {
+					// call the recursive function
+					iterator( obj[key], value );
+					trace.pop();
+				} else {
+					if( obj[key] !== value ){
+						// remove it from the stack
+						trace.pop();
+					} else {
+						// yay, found him. print the stack to finalPath
+						// trace.pop();
+						finalPath = trace.join('.');
+					}
+				}
+			}
+		}
+		iterator( obj, value);
+		return finalPath;
+	}
+
 	vpo.setValueByPath = setValueByPath;
 	vpo.getValueByPath = getValueByPath;
+	vpo.getPathByMatchingValue = getPathByMatchingValue
     
 	vpo.setOnObjectPrototype = function () {
 		Object.prototype.setValueByPath = function (path, value) {
