@@ -57,7 +57,7 @@ given the following dummy object:
 
 setting a value:
 ```javascript
-vpo.setValueByPath(testObj, 'key1.foo2.bar2', 'resetBao');
+vpo.setValueByPath('resetBao', 'key1.foo2.bar2', testObj);
 ```
 
 getting a value:

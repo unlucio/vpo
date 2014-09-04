@@ -45,7 +45,7 @@ describe('Vpo tests', function () {
 	});
 
 	it('Doesn\'t crash setting random key', function () {
-		vpo.setValueByPath(testObj, 'key1.blah.bar2', 'resetBao');
+		vpo.setValueByPath('resetBao', 'key1.blah.bar2', testObj);
 	});
 
 	it('Doesn\'t crash getting random key', function () {
@@ -54,12 +54,12 @@ describe('Vpo tests', function () {
 
 	describe('Alone functions', function () {
 		it('Can set a value', function () {
-			vpo.setValueByPath(testObj, 'key1.foo2.bar2', 'resetBao');
+			vpo.setValueByPath('resetBao', 'key1.foo2.bar2', testObj);
 			assert.equal("resetBao", testObj.key1.foo2.bar2, "Cannot set value!");
 		});
 
 		it('Can get a value', function () {
-			var value = vpo.getValueByPath(testObj, 'key1.foo2.bar2')
+			var value = vpo.getValueByPath(testObj, 'key1.foo2.bar2');
 			assert.equal("bao", value, "Cannot read value!");
 		});
 		
@@ -72,13 +72,13 @@ describe('Vpo tests', function () {
 	describe('Attaching to Object.prototype', function () {
 		it('Can set a value', function () {
 			vpo.setOnObjectPrototype();
-			testObj.setValueByPath('key1.foo2.bar2', 'resetBao');
+			testObj.setValueByPath('resetBao', 'key1.foo2.bar2');
 			assert.equal("resetBao", testObj.key1.foo2.bar2, "Cannot set value!");
 		});
 
 		it('Can get a value', function () {
 			vpo.setOnObjectPrototype();
-			var value = testObj.getValueByPath('key1.foo2.bar2')
+			var value = testObj.getValueByPath('key1.foo2.bar2');
 			assert.equal("bao", value, "Cannot read value!");
 		});
 	});
