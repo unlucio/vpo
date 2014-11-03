@@ -63,10 +63,20 @@ describe('Vpo tests', function () {
 			assert.equal("bao", value, "Cannot read value!");
 		});
 		
+		it('Returns a fallback value if provided and it cannot find the object path', function () {
+			var value = vpo.getValueByPath(testObj, 'AGH', 11);
+			assert.equal(11, value, "Cannot read value!");
+		});
+		
+		it('Returns a fallback value if provided and it cannot find a deep object path', function () {
+			var value = vpo.getValueByPath(testObj, 'AGH.some.Error', 11);
+			assert.equal(11, value, "Cannot read value!");
+		});
+		
 		it('Can find a path by matching a value', function () {
 			var value = vpo.getByValue(testObj, 'bao12');
 			assert.equal("key3.foo2.bar2", value, "Cannot find path by  matching value!");
-		});
+		});		
 	});
 
 	describe('Attaching to Object.prototype', function () {
@@ -80,6 +90,12 @@ describe('Vpo tests', function () {
 			vpo.setOnObjectPrototype();
 			var value = testObj.get('key1.foo2.bar2');
 			assert.equal("bao", value, "Cannot read value!");
+		});
+		
+		it('Supports fallbacks while looking up a value', function () {
+			vpo.setOnObjectPrototype();
+			var value = testObj.getValueByPath('oops.some.non.existing.property', 11);
+			assert.equal(11, value, "Cannot read value!");
 		});
 	});
 

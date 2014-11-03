@@ -11,18 +11,20 @@
     }
   }
 
-  function getValueByPath(object, path) {
+  function getValueByPath(object, path, fallback) {
     var nextPath = '';
     var splitPath = path.split('.');
-
+      
     if (object.hasOwnProperty(splitPath[0])) {
       if (splitPath.length > 1) {
         nextPath = path.replace(splitPath[0] + '.', '');
-        return getValueByPath(object[splitPath[0]], nextPath);
+        return getValueByPath(object[splitPath[0]], nextPath, fallback);
       } else {
         return object[splitPath[0]];
       }
     }
+    
+    return fallback;
   }
 
   function getPathByMatchingValue(obj, value) {
@@ -62,7 +64,7 @@
       setValueByPath(this, path, value);
     };
 
-    Object.prototype.get = function(path) {
+    Object.prototype.get = function(path, fallback) {
       return getValueByPath(this, path);
     };
   };
