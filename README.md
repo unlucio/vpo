@@ -58,12 +58,12 @@ given the following dummy object:
 
 setting a value:
 ```javascript
-vpo.setValueByPath('resetBao', 'key1.foo2.bar2', testObj);
+vpo.set('resetBao', 'key1.foo2.bar2', testObj);
 ```
 
 getting a value:
 ```javascript
-vpo.getValueByPath(testObj, 'key1.foo2.bar2');
+vpo.get(testObj, 'key1.foo2.bar2');
 ```
 
 ===
