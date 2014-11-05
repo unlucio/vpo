@@ -62,7 +62,7 @@ Given the following dummy object:
 setting a value:
 
 ``` javascript
-vpo.set('key1.foo2.bar2', testObj, 'resetBao');
+vpo.set(testObj, 'key1.foo2.bar2', 'resetBao');
 ```
 
 getting a value:
