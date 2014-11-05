@@ -65,7 +65,7 @@
     };
 
     Object.prototype.get = function(path, fallback) {
-      return getValueByPath(this, path);
+      return getValueByPath(this, path, fallback);
     };
   };
 })(typeof exports === 'undefined' ? this['vpo'] = {} : exports);

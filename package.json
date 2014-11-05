@@ -4,7 +4,7 @@
   "description": "Value/path helper functions for javascript objects",
   "main": "vpo.js",
   "scripts": {
-    "test": "mocha --recursive -t 10000 -R spec"
+    "test": "mocha --recursive -b -t 10000 -R spec"
   },
   "repository": {
     "type": "git",
