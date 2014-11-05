@@ -1,11 +1,11 @@
 (function(vpo) {
-  function setValueByPath(object, path, value) {
+  function setValueByPath(value, path, object) {
     var splitPath = path.split('.');
     var key = splitPath.shift();
 
     if (splitPath.length >0) {
       object[key] = object[key] || {};
-      setValueByPath(object[key], splitPath.join('.'), value);
+      setValueByPath(value, splitPath.join('.'), object[key]);
     } else {
       object[key] = value;
     }
@@ -53,16 +53,16 @@
     return finalPath;
   }
 
-  vpo.set = setValueByPath;
-  vpo.get = getValueByPath;
-  vpo.getByValue = getPathByMatchingValue;
+  vpo.setValueByPath = setValueByPath;
+  vpo.getValueByPath = getValueByPath;
+  vpo.getPathByMatchingValue = getPathByMatchingValue;
 
   vpo.setOnObjectPrototype = function() {
-    Object.prototype.set = function(path, value) {
-      setValueByPath(this, path, value);
+    Object.prototype.setValueByPath = function(value, path) {
+      setValueByPath(value, path, this);
     };
 
-    Object.prototype.get = function(path) {
+    Object.prototype.getValueByPath = function(path) {
       return getValueByPath(this, path);
     };
   };
