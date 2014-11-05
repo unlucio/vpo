@@ -19,6 +19,7 @@ or
 ```
 npm install vpo
 ```
+
 or
 
 ```
@@ -28,8 +29,6 @@ bower install vpo
 ## Examples:
 
 Given the following dummy object:
-
-given the following dummy object:
 
 ```javascript
 {
@@ -59,7 +58,6 @@ given the following dummy object:
 	}
 }
 ```
-
 
 setting a value:
 

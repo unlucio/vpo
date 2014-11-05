@@ -14,7 +14,7 @@
   function getValueByPath(object, path, fallback) {
     var nextPath = '';
     var splitPath = path.split('.');
-      
+
     if (object.hasOwnProperty(splitPath[0])) {
       if (splitPath.length > 1) {
         nextPath = path.replace(splitPath[0] + '.', '');
@@ -23,7 +23,7 @@
         return object[splitPath[0]];
       }
     }
-    
+
     return fallback;
   }
 

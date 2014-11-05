@@ -45,21 +45,21 @@ describe('Vpo tests', function () {
 	});
 
 	it('Doesn\'t crash setting random key', function () {
-		vpo.set(testObj, 'key1.blah.bar2', 'resetBao');
+		vpo.setValueByPath('resetBao', 'key1.blah.bar2', testObj);
 	});
 
 	it('Doesn\'t crash getting random key', function () {
-		vpo.get(testObj, 'key1.blah.bar2');
+		vpo.getValueByPath(testObj, 'key1.blah.bar2');
 	});
 
 	describe('Alone functions', function () {
 		it('Can set a value', function () {
-			vpo.set(testObj, 'key1.foo2.bar2', 'resetBao');
+			vpo.setValueByPath('resetBao', 'key1.foo2.bar2', testObj);
 			assert.equal("resetBao", testObj.key1.foo2.bar2, "Cannot set value!");
 		});
 
 		it('Can get a value', function () {
-			var value = vpo.get(testObj, 'key1.foo2.bar2');
+			var value = vpo.getValueByPath(testObj, 'key1.foo2.bar2');
 			assert.equal("bao", value, "Cannot read value!");
 		});
 		
@@ -74,7 +74,7 @@ describe('Vpo tests', function () {
 		});
 		
 		it('Can find a path by matching a value', function () {
-			var value = vpo.getByValue(testObj, 'bao12');
+			var value = vpo.getPathByMatchingValue(testObj, 'bao12');
 			assert.equal("key3.foo2.bar2", value, "Cannot find path by  matching value!");
 		});		
 	});
@@ -82,13 +82,13 @@ describe('Vpo tests', function () {
 	describe('Attaching to Object.prototype', function () {
 		it('Can set a value', function () {
 			vpo.setOnObjectPrototype();
-			testObj.set('key1.foo2.bar2', 'resetBao');
+			testObj.setValueByPath('resetBao', 'key1.foo2.bar2');
 			assert.equal("resetBao", testObj.key1.foo2.bar2, "Cannot set value!");
 		});
 
 		it('Can get a value', function () {
 			vpo.setOnObjectPrototype();
-			var value = testObj.get('key1.foo2.bar2');
+			var value = testObj.getValueByPath('key1.foo2.bar2');
 			assert.equal("bao", value, "Cannot read value!");
 		});
 		
