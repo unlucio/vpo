@@ -1,6 +1,6 @@
 {
   "name": "vpo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Value/path helper functions for javascript objects",
   "main": "vpo.js",
   "scripts": {
