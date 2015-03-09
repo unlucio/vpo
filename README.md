@@ -69,6 +69,11 @@ getting a value:
 
 ``` javascript
 vpo.get(testObj, 'key1.foo2.bar2');
+
+getting a value from a list of possible paths:
+
+``` javascript
+vpo.getSom(testObj, ['ke5.foo2.bar2', 'key1.foo2.bar2']);
 ```
 
 ## I'm not sure who will ever be so "brave" to use it, but I'll leave it in since a dear friend of mine LOVES it :D

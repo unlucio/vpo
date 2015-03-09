@@ -1,3 +1,5 @@
+'use strict';
+
 (function(vpo) {
   function setValueByPath(object, path, value) {
     var splitPath = path.split('.');
@@ -12,6 +14,7 @@
   }
 
   function getValueByPath(object, path, fallback) {
+    fallback = fallback || null;
     var nextPath = '';
     var splitPath = path.split('.');
 
@@ -55,8 +58,19 @@
     return finalPath;
   }
 
+  function getSome(object, paths, fallback) {
+    var result = null;
+    
+    paths.some(function(path) {
+      return (result = getValueByPath(object, path));
+    });
+
+    return (result !== null) ? result : fallback;
+  }
+
   vpo.set = setValueByPath;
   vpo.get = getValueByPath;
+  vpo.getSome = getSome;
   vpo.getByValue = getPathByMatchingValue;
 
   vpo.setOnObjectPrototype = function() {
@@ -68,4 +82,4 @@
       return getValueByPath(this, path, fallback);
     };
   };
-})(typeof exports === 'undefined' ? this['vpo'] = {} : exports);
+})( (typeof exports === 'undefined') ? this['vpo'] = {} : exports);
