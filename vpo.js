@@ -5,8 +5,8 @@
     var splitPath = path.split('.');
     var key = splitPath.shift();
 
-    if (splitPath.length >0) {
-      object[key] = object[key] || {};
+    if (splitPath.length > 0) {
+      object[key] = object[key] || ((!isNaN(parseInt(splitPath[0], 10))) ? [] : {});
       setValueByPath(object[key], splitPath.join('.'), value);
     } else {
       object[key] = value;
@@ -26,7 +26,7 @@
         return object[splitPath[0]];
       }
     }
-    
+
     return fallback;
   }
 
@@ -60,7 +60,7 @@
 
   function getSome(object, paths, fallback) {
     var result = null;
-    
+
     paths.some(function(path) {
       return (result = getValueByPath(object, path));
     });
