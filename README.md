@@ -83,6 +83,12 @@ getting a value from a list of possible paths:
 vpo.getSome(testObj, ['ke5.foo2.bar2', 'key1.foo2.bar2']);
 ```
 
+getting a value from a list of possible paths specifing a default return value:
+
+``` javascript
+vpo.getSome(testObj, 'key1.foo2.barNoExists', 'default');
+```
+
 ## I'm not sure who will ever be so "brave" to use it, but I'll leave it in since a dear friend of mine LOVES it :D
 
 ~~For convenince you can attach VPO to Object's prototype and have all your objects with 2 new methods:~~
