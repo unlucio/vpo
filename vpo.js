@@ -18,7 +18,7 @@
     var nextPath = '';
     var splitPath = path.split('.');
 
-    if (object.hasOwnProperty(splitPath[0])) {
+    if (object && object.hasOwnProperty(splitPath[0])) {
       if (splitPath.length > 1) {
         nextPath = path.replace(splitPath[0] + '.', '');
         return getValueByPath(object[splitPath[0]], nextPath, fallback);
