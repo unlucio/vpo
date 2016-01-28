@@ -41,7 +41,9 @@ describe('Vpo tests', function () {
 				foo3: {
 					bar3: 'bao'
 				}
-			}
+			},
+			keyNull: null,
+			keyFalse: false
 		};
 	});
 
@@ -130,10 +132,12 @@ describe('Vpo tests', function () {
 					foo3: {
 						bar3: 'bao'
 					}
-				}
+				},
+				keyNull: null,
+				keyFalse: false
 			};
 
-			var paths = ['key1.foo1.bar2', 'key1.foo3.bar5', 'key3'];
+			var paths = ['key1.foo1.bar2', 'key1.foo3.bar5', 'key3', 'keyNull', 'keyFalse'];
 			var value = vpo.pick(testObj, paths, 'myDefaultValue');
 			assert.deepEqual(value, result, 'Picked values are wrong');
 		});
