@@ -26,6 +26,10 @@ or
 bower install vpo
 ```
 
+## Changelog:
+
+v 2.0 - better handling of null/undefined. The default returned value is now `undefined` istead of `null` if none is given.
+
 ## Examples:
 
 Given the following dummy object:
