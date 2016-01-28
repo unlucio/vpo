@@ -68,10 +68,23 @@
     return (result !== null) ? result : fallback;
   }
 
+  function pick(obj, paths) {
+    return paths.reduce(function(result, path) {
+      var value = getValueByPath(obj, path);
+
+      if (value) {
+        setValueByPath(result, path, value);
+      }
+
+      return result;
+    }, {});
+  }
+
   vpo.set = setValueByPath;
   vpo.get = getValueByPath;
   vpo.getSome = getSome;
   vpo.getByValue = getPathByMatchingValue;
+  vpo.pick = pick;
 
   vpo.setOnObjectPrototype = function() {
     Object.prototype.set = function(path, value) {

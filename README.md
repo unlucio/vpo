@@ -59,34 +59,57 @@ Given the following dummy object:
 }
 ```
 
-setting a value:
+#### setting a value:
 
 ``` javascript
 vpo.set(testObj, 'key1.foo2.bar2', 'resetBao');
 ```
 
-getting a value:
+#### getting a value:
 
 ``` javascript
 vpo.get(testObj, 'key1.foo2.bar2');
 ```
 
-getting a value specifing a default return value:
+#### getting a value specifing a default return value:
 
 ``` javascript
 vpo.get(testObj, 'key1.foo2.barNoExists', 'default');
 ```
 
-getting a value from a list of possible paths:
+#### getting a value from a list of possible paths:
 
 ``` javascript
-vpo.getSome(testObj, ['ke5.foo2.bar2', 'key1.foo2.bar2']);
+vpo.getSome(testObj, ['key5.foo2.bar2', 'key1.foo2.bar2']);
 ```
 
-getting a value from a list of possible paths specifing a default return value:
+#### getting a value from a list of possible paths specifing a default return value:
 
 ``` javascript
-vpo.getSome(testObj, 'key1.foo2.barNoExists', 'default');
+vpo.getSome(testObj, ['key1.foo2.barNoExists', 'key1.foo12.barNoExists', 'key14.foo2.barNoExists'], 'default');
+```
+
+#### getting parts of your objects based on paths:
+
+``` javascript
+vpo.pick(testObj, ['key1.foo1.bar2', 'key1.foo4.bar2', 'key2.foo1']);
+
+/**
+will yield ==>
+{
+	key1: {
+		foo1: {
+			bar2: 'bao'
+		}
+	},
+	key2: {
+		foo1: {
+			bar1: 'bao',
+			bar2: 'bao'
+		}
+	}
+}
+*/
 ```
 
 ## I'm not sure who will ever be so "brave" to use it, but I'll leave it in since a dear friend of mine LOVES it :D

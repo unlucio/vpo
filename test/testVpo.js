@@ -111,6 +111,34 @@ describe('Vpo tests', function () {
 		});
 	});
 
+	describe('- PICK', function () {
+		it('Retuns an object containing only the specified paths and values', function() {
+			var result = {
+				key1: {
+					foo1: {
+						bar2: 'bao'
+					}
+				},
+				key3: {
+					foo1: {
+						bar1: 'bao',
+						bar2: 'bao'
+					},
+					foo2: {
+						bar2: 'bao12'
+					},
+					foo3: {
+						bar3: 'bao'
+					}
+				}
+			};
+
+			var paths = ['key1.foo1.bar2', 'key1.foo3.bar5', 'key3'];
+			var value = vpo.pick(testObj, paths, 'myDefaultValue');
+			assert.deepEqual(value, result, 'Picked values are wrong');
+		});
+	});
+
 	describe('Attaching to Object.prototype', function () {
 		it('Can set a value', function () {
 			vpo.setOnObjectPrototype();
