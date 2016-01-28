@@ -14,7 +14,6 @@
   }
 
   function getValueByPath(object, path, fallback) {
-    fallback = fallback || null;
     var nextPath = '';
     var splitPath = path.split('.');
 
@@ -59,20 +58,20 @@
   }
 
   function getSome(object, paths, fallback) {
-    var result = null;
+    var result = undefined;
 
     paths.some(function(path) {
       return (result = getValueByPath(object, path));
     });
 
-    return (result !== null) ? result : fallback;
+    return (result !== undefined) ? result : fallback;
   }
 
   function pick(obj, paths) {
     return paths.reduce(function(result, path) {
-      var value = getValueByPath(obj, path);
+      var value = getValueByPath(obj, path, undefined);
 
-      if (value) {
+      if (value !== undefined) {
         setValueByPath(result, path, value);
       }
 
